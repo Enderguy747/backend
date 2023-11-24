@@ -1,0 +1,13 @@
+
+1) Métodos de interpolación y su representación gráfica
+• Tabla de diferencias divididas para el polinomio de Newton
+• Lagrange
+• Mínimos cuadrados (lineales y cuadráticos)
+
+
+2) Métodos de solución aproximada de ecuaciones de una variable y su representación
+gráfica
+• Algoritmo de la bisección
+• Iteración del punto fijo
+• Newton Raphson
+• Secante 

@@ -6,7 +6,7 @@ app = FastAPI()
 from src.routes import index
 
 #use routes here
-app.include_router(index.router)
+#app.include_router(index.router)
 
 
 #default home api
