@@ -1,5 +1,4 @@
 
-from shutil import which
 from sympy import simplify, symbols , lambdify
 import matplotlib.pyplot as plt
 import numpy as np
