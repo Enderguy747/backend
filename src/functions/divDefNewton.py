@@ -6,7 +6,7 @@ import numpy as np
 
 x = symbols('x')
 
-def divDefNewton(xAxis, yAxis):
+def divididasDiferenciasNewton(xAxis, yAxis):
 
     #se crea la tabla de diferencias divididas
     ddTable = []
@@ -57,16 +57,16 @@ def divDefNewton(xAxis, yAxis):
             terms*=(x-ddTable[0][r])
         w+=1
         p += ddTable[t+1][0]*terms
-        
+    simplificated =   simplify(p)
     print('\n polinomio entero')
     print(p)    
     print('\n polinomio simplificado')
-    print(simplify(p))
+    print(simplificated)
     
     ##grafic settings
 
-    px = lambdify(x,simplify(p))
-    graficScale = len(xAxis)*10
+    px = lambdify(x,simplificated)
+    graficScale = 400
     pointA = np.min(xAxis)
     pointB = np.max(xAxis)
     pXAxis = np.linspace(pointA,pointB,graficScale)
@@ -86,8 +86,7 @@ def divDefNewton(xAxis, yAxis):
     
  
         
-    return p,simplify(p),termValues
-
+    return {"polinomio":p,"simplificado":simplificated ,"terminos":termValues }
 
 
 
@@ -95,6 +94,6 @@ def divDefNewton(xAxis, yAxis):
 ##n=[16,22,12,13,10,8,8,6,7,5,6,4,3,42,2,2]
 ##m=[-4,-1,2,5,7]
 ##n=[4,1,2,5,7]
-m=[3.2, 3.8, 4.2, 4.5]
-n=[5.12, 6.42, 7.25, 6.85]
-divDefNewton(m,n)
+##m=[3.2, 3.8, 4.2, 4.5]
+##n=[5.12, 6.42, 7.25, 6.85]
+##divDefNewton(m,n)
