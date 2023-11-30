@@ -2,6 +2,7 @@
 from sympy import simplify, symbols , lambdify
 import matplotlib.pyplot as plt
 import numpy as np
+import sympy
 
 
 x = symbols('x')
@@ -35,18 +36,18 @@ def divididasDiferenciasNewton(xAxis, yAxis):
         d+=1
     
     
-    print('\n valores de los terminos: ')
+    ##print('\n valores de los terminos: ')
     termValues = []
     for l in range(len(ddTable[0])):
-        print("a [",l,"] =",ddTable[l+1][0])
+        ##print("a [",l,"] =",ddTable[l+1][0])
         termValues.append(ddTable[l+1][0])
-    print('\nLista de valores')
-    print(termValues)
+   ## print('\nLista de valores')
+   ## print(termValues)
 
-    print('\n')
+    ##print('\n')
     matrix=np.array(ddTable)
     matrix_transpose=np.transpose(matrix)
-    print(matrix_transpose)
+   ## print(matrix_transpose)
     
     #polinomio
     p = 0
@@ -58,11 +59,12 @@ def divididasDiferenciasNewton(xAxis, yAxis):
         w+=1
         p += ddTable[t+1][0]*terms
     simplificated =   simplify(p)
+    '''
     print('\n polinomio entero')
     print(p)    
     print('\n polinomio simplificado')
     print(simplificated)
-    
+    '''
     ##grafic settings
 
     px = lambdify(x,simplificated)
@@ -82,11 +84,11 @@ def divididasDiferenciasNewton(xAxis, yAxis):
     plt.xlabel('pXAxis')
     plt.ylabel('pYAxis')
     plt.title('Diferencias Divididas - Newton')
-    plt.show()
+    ##plt.show()
     
  
         
-    return {"polinomio":p,"simplificado":simplificated ,"terminos":termValues }
+    return str(p)  , str(simplificated) ,termValues 
 
 
 

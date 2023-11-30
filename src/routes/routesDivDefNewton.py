@@ -8,6 +8,11 @@ n=[16,22,12,13,10,8,8,6,7,5,6,4,3,42,2,2]
 @router.get("/newtondd")
 
 async def diferenciasDivididas():
+    p , simplificated ,termValues  = ddn(m,n)
    
-    return {"polinomio"}
-
+   
+    return {
+        'polinomio':p,
+        'polinomioSimplificado':simplificated,
+        'valores':termValues
+        }
