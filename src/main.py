@@ -3,12 +3,13 @@ from fastapi import FastAPI
 app = FastAPI()
 
 #import routes here
-from src.routes import routesDivDefNewton,routesLaGrange
+from src.routes import routesDivDefNewton,routesLaGrange,index
 
 #use routes here
 #app.include_router(index.router)
 app.include_router(routesDivDefNewton.router)
 app.include_router(routesLaGrange.router)
+app.include_router(index.router)
 
 
 #default home api
