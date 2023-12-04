@@ -1,7 +1,7 @@
 
 import numpy as np
 from sympy import lambdify, symbols, simplify
-import matplotlib.pyplot as plt
+##import matplotlib.pyplot as plt
 
 
 x = symbols("x")
@@ -28,7 +28,7 @@ def valoresDelPolinomio(xi,yi):
     pxi=np.linspace(a,b,muestras)
     pyi=px(pxi)
     return pxi.tolist(),pyi.tolist(),str(polinomio),str(polinomioSimplificado)
-
+''''
 def grafico(xi,yi,pxi,pyi):
     plt.plot(xi,yi,"o",label="puntos")
     plt.plot(pxi,pyi,label="polinomio")
@@ -40,9 +40,4 @@ def grafico(xi,yi,pxi,pyi):
     plt.show()
 xi=np.array([0,6,10,13,17,20,28])
 yi=np.array([6.67,17.33,42.97,37.33,30.10,29.31,28.74])
-    
-##xi=[1,3,5,7]
-##yi=[-2,1,2,-3]
-##pxi,pyi,polinomio,polinomioSimplificado=valoresDelPolinomio(xi,yi)
-    
-##print(polinomioSimplificado)
+'''  

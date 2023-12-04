@@ -1,13 +1,11 @@
 
-from sympy import simplify, symbols , lambdify
+from sympy import simplify, symbols
 import matplotlib.pyplot as plt
 import numpy as np
-import sympy
-
 
 x = symbols('x')
 
-def divididasDiferenciasNewton(xAxis, yAxis):
+def divDifNewton(xAxis, yAxis):
 
     #se crea la tabla de diferencias divididas
     ddTable = []
@@ -50,21 +48,22 @@ def divididasDiferenciasNewton(xAxis, yAxis):
    ## print(matrix_transpose)
     
     #polinomio
-    p = 0
+    polinomio = 0
     w = 0
     for t in range(len(ddTable[0])):
         terms = 1
         for r in range(w):
             terms*=(x-ddTable[0][r])
         w+=1
-        p += ddTable[t+1][0]*terms
-    simplificated =   simplify(p)
+        polinomio += ddTable[t+1][0]*terms
+    simplificated =   simplify(polinomio)
+    
     '''
     print('\n polinomio entero')
     print(p)    
     print('\n polinomio simplificado')
     print(simplificated)
-    '''
+  
     ##grafic settings
 
     px = lambdify(x,simplificated)
@@ -85,17 +84,9 @@ def divididasDiferenciasNewton(xAxis, yAxis):
     plt.ylabel('pYAxis')
     plt.title('Diferencias Divididas - Newton')
     ##plt.show()
-    
+    '''
  
         
-    return str(p)  , str(simplificated) ,termValues 
+    return str(polinomio)  , str(simplificated) ,termValues 
 
 
-
-##m=[18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33]
-##n=[16,22,12,13,10,8,8,6,7,5,6,4,3,42,2,2]
-##m=[-4,-1,2,5,7]
-##n=[4,1,2,5,7]
-##m=[3.2, 3.8, 4.2, 4.5]
-##n=[5.12, 6.42, 7.25, 6.85]
-##divDefNewton(m,n)
