@@ -5,14 +5,13 @@ app = FastAPI()
 
 
 #CORS
-
-origins = [
 '''
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
     "http://localhost",
     "http://:8080",
 '''
+origins = [
 "http://127.0.0.1:8000"
 ]
 
