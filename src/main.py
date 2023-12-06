@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from src.routes import routesDivDefNewton,routesLaGrange,routesMinCuadrados
 
 app = FastAPI()
 
@@ -24,13 +25,11 @@ app.add_middleware(
 )
 
 #import routes here
-from src.routes import routesDivDefNewton,routesLaGrange
-
 #use routes here
 #app.include_router(index.router)
 app.include_router(routesDivDefNewton.router)
 app.include_router(routesLaGrange.router)
-
+app.include_router(routesMinCuadrados.router)
 
 
 #default home api
