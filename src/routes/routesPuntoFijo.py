@@ -4,11 +4,16 @@ from ..models.PuntoFijo import PuntoFijo
 
 router = APIRouter()
 
-@router.post("/mincuadrados")
+@router.post("/puntofijo")
 def minimosCuadrados(body:PuntoFijo):
  
-    ecuation = mc(body.xAxis,body.yAxis,body.Parabola)
+    valor_iteracion,error_actual,iteracion_actual,iteraciones =pf(body.originalFunction, body.clearedFunction, body.initialPoint, body.tolerance)
+   ## 
    
     return {
-        'EcuacionRecta':ecuation,
-        }
+            'valorIteracion':valor_iteracion,
+            'errorActual':error_actual,
+            'iteracionActual':iteracion_actual,
+            'iteraciones':str(iteraciones)
+            }
+ 

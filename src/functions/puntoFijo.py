@@ -1,6 +1,7 @@
+import numpy as np
 import sympy as sp
 
-def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial:float,tolerancia:float):
+def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial,tolerancia):
 
     funcion_original = sp.sympify(expresion_funcion)
 
@@ -27,16 +28,19 @@ def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial:float,toleranc
         iteraciones.append({"iteracionActual":iteracion_actual,"valorInicial":valor_inicial,"errorActual":error_actual})
 
     # Mostrar el resultado final
-    if iteracion_actual < max_iteraciones:
-        return valor_iteracion,error_actual,iteracion_actual,iteraciones
-    else:
-        return (f"\nNo se encontró un punto fijo en {max_iteraciones} iteraciones.")
+    
+    if iteracion_actual > max_iteraciones:
+        return f"\nNo se encontró un punto fijo en {max_iteraciones} iteraciones." 
+    
+
+    return float(valor_iteracion),float(error_actual),iteracion_actual,iteraciones
+   
 
 # Llamada a la función
-"""""
+''''
 x="2*tan(x)-4*x+5"
 g="(2*tan(x*(3.14/180))+5)/4"
 pi=1
 tol=0.01
 print(puntoFijo(x,g,pi,tol))
-"""""
+'''
