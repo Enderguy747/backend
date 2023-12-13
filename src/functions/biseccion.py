@@ -7,6 +7,8 @@ def biseccion(funcion_str, intervalo_inicial, intervalo_final, tolerancia=None, 
     funcion = sp.lambdify(x, funcion_sym)
     
     # Verifica si el método de la bisección puede aplicarse
+   ## print("intervalo a\n",funcion(intervalo_inicial))
+    ##print("intervalo b\n",funcion(intervalo_final))
     if funcion(intervalo_inicial) * funcion(intervalo_final) >= 0:
         print("El método de la bisección no se puede aplicar.")
         return None
@@ -47,10 +49,10 @@ def biseccion(funcion_str, intervalo_inicial, intervalo_final, tolerancia=None, 
         # Calcula el error y agrega la iteración a la lista
         iteracion['Error'] = abs(iteracion['f(xi)'])
         iteraciones.append(iteracion)
-
+        print(iteraciones)
     return iteraciones
 
-
+""""
 funcion_str="exp(-x)-x"
 intervalo_inicial=0
 intervalo_final=1
@@ -60,3 +62,4 @@ tolerancia=0.01
 iteraciones = biseccion(funcion_str, intervalo_inicial, intervalo_final, tolerancia)
 
 print(iteraciones)
+"""
