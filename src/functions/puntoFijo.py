@@ -18,14 +18,18 @@ def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial,tolerancia):
     ##print("Iteración\tValor Actual\tError")
     iteraciones=[]
     while error_actual > tolerancia and iteracion_actual < max_iteraciones:
-        valor_iteracion = funcion_iteracion.eval(subs={sp.symbols('x'): valor_inicial})
+        valor_iteracion = funcion_iteracion.evalf(subs={sp.symbols('x'): valor_inicial})
 
         error_actual = abs(valor_iteracion - valor_inicial) / abs(valor_iteracion) if abs(valor_iteracion) != 0 else 0
         valor_inicial = valor_iteracion
         iteracion_actual += 1
-
+        iteracion={
+            "iteracionActual":iteracion_actual,
+            "valorInicial":valor_inicial,
+            "errorActual":error_actual}
         # Mostrar iteración y error en cada paso
-        iteraciones.append({"iteracionActual":iteracion_actual,"valorInicial":valor_inicial,"errorActual":error_actual})
+        iteraciones.append(iteracion)
+    ##print(iteraciones)
 
     # Mostrar el resultado final
     
@@ -37,10 +41,10 @@ def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial,tolerancia):
    
 
 # Llamada a la función
-''''
+""""
 x="2*tan(x)-4*x+5"
 g="(2*tan(x*(3.14/180))+5)/4"
 pi=1
 tol=0.01
 print(puntoFijo(x,g,pi,tol))
-'''
+"""
