@@ -18,7 +18,7 @@ def puntoFijo(expresion_funcion,expresion_iteracion,valor_inicial,tolerancia):
     ##print("Iteración\tValor Actual\tError")
     iteraciones=[]
     while error_actual > tolerancia and iteracion_actual < max_iteraciones:
-        valor_iteracion = funcion_iteracion.evalf(subs={sp.symbols('x'): valor_inicial})
+        valor_iteracion = funcion_iteracion.eval(subs={sp.symbols('x'): valor_inicial})
 
         error_actual = abs(valor_iteracion - valor_inicial) / abs(valor_iteracion) if abs(valor_iteracion) != 0 else 0
         valor_inicial = valor_iteracion
