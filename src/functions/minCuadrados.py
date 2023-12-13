@@ -3,6 +3,7 @@ import math
 import numpy as np
 
 
+
 def minCuadrados(xAxis,yAxis,parabola=0):
   
     if(len(xAxis)!=len(yAxis)):
