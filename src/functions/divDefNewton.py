@@ -1,5 +1,5 @@
 
-from sympy import simplify, symbols
+from sympy import lambdify, simplify, symbols
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -63,7 +63,7 @@ def divDifNewton(xAxis, yAxis):
     print(p)    
     print('\n polinomio simplificado')
     print(simplificated)
-  
+   '''
     ##grafic settings
 
     px = lambdify(x,simplificated)
@@ -77,14 +77,14 @@ def divDifNewton(xAxis, yAxis):
     
     plt.plot(pXAxis,pYAxis,'o', label = 'Puntos')
 
-    plt.plot(pXAxis,pYAxis, label = 'Polinomio')
+    plt.plot(pXAxis,pYAxis, label = "Polinomio" )
     plt.legend()
     plt.grid(True)
-    plt.xlabel('pXAxis')
-    plt.ylabel('pYAxis')
+    plt.xlabel('Eje Y')
+    plt.ylabel('Eje X')
     plt.title('Diferencias Divididas - Newton')
-    ##plt.show()
-    '''
+   ## plt.show()
+   
  
         
     return str(polinomio)  , str(simplificated) ,termValues 

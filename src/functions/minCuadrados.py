@@ -1,5 +1,6 @@
 
 import math
+from matplotlib import pyplot as plt
 import numpy as np
 
 
@@ -35,10 +36,21 @@ def minCuadrados(xAxis,yAxis,parabola=0):
         
         xValor=np.linalg.solve(a,b)
         
+        plt.title('minimos cuadrados')
         
         if(parabola==1):
+            plt.scatter(xAxis,yAxis)
+            plt.xlabel("Edad")
+            plt.ylabel("cantidad")
+            plt.plot(xValor[0],xValor[1],xValor[2])
+            ##plt.show()
             return ('y=',xValor[0],'+',xValor[1],'x',xValor[2],'x^2')
         else:
+            plt.scatter(xAxis,yAxis)
+            plt.xlabel("Edad")
+            plt.ylabel("cantidad")
+            plt.plot(xValor[0],xValor[1])
+            ##plt.show()
             return ('y=',xValor[0],'+',xValor[1],'x') 
        
        

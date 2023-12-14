@@ -13,7 +13,8 @@ app = FastAPI()
     "http://:8080",
 '''
 origins = [
-"http://127.0.0.1:8000"
+"http://127.0.0.1:8000",
+"http://metodos-numericos-utn.infinityfreeapp.com/"
 ]
 
 app.add_middleware(
